@@ -1,4 +1,4 @@
-name: motif
+name: grphin
 channels:
   - conda-forge
   - defaults
