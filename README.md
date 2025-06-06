@@ -5,14 +5,14 @@ GRPhIN (Graphlet Characterization of Regulatory and Physical Interaction Network
 GRPhIN will be presented at Great Lakes Boinformatics Conference 2025. A preprint is available on bioRxiv:
 
 [GRPhIN: Graphlet Characterization of Regulatory and Physical Interaction Networks](https://www.biorxiv.org/content/10.1101/2025.02.19.639099v1)<br>
-Altaf Barelvi*, Oliver Anderson*, Anna Ritz<br>
-\* *Equal contribution*
+Altaf Barelvi*, Oliver Anderson*, Anna Ritz<br> \* _Equal contribution_
 
 GRPhIN takes as input (1) an undirected PPI network and (2) a directed regulatory network and counts all mixed graphlets and their respective orbits ([Figure 6](https://github.com/Reed-CompBio/motifs/blob/main/Complete%20Graphlet%20%26%20Orbit%20Definitions.pdf)). GRPhIN provides additional functional context to the roles a protein may play beyond traditional isolated network types.
 
 ## Usage
+
 Install and activate the GRPhIN conda environment in the root directory:
-```conda env create -f environment.yml```
+`conda env create -f environment.yml`
 Once you have created the conda environment you can activate it (e.g. `conda activate grphin`).
 
 To run the GRPhIN orbit and graphlet counting algorithm on the example networks, run the `grphin.py` script with `python grphin.py`.
@@ -35,20 +35,30 @@ options:
                         Run GRPhIN in graphlets only mode.
 ```
 
-## Example Dataset
+## Example Dataset on GRPhIN
 
+- Within the grphin directory and activating the conda environment, do the command below
+
+```
+python3 grphin.py -u data/oxidative_stress/txid224308/stress_ppi.csv -d data/oxidative_stress/txid224308/stress_reg.csv -o test-output
+```
+
+- This uses the B. subtilis data to run the grphin algorithm. the output is located in the `/test-output` directory
 
 ## Directories
+
 - **`data/`** – Contains raw data files for case studies.
 - **`final_output/`** – Contains output data files for case studies.
+
 ## File Descriptions
+
 - **`countRandomizedNetworks.sh`** - Script to run GRPhIN in graphlets-only mode on a user-defined number of networks. Used to count graphlets in 1000 randomized networks for oxidative stress case studies.
 - **`enrichment.py`** – Script for calculating graphlet enrichment statistics.
 - **`environment.yml`** – Set up the conda environment with all dependencies required to run the project.
 - **`grphin.py`** – Script for running the GRPhIN algorithm.
 - **`generateNetworks.py`** – Script to generate randomized networks for significance testing.
 - **`iterations_swaps.R`** - Script to generate plot showing thresholds for swaps for each species based on the percent randomization.
-- **`iterations_swaps.txt`** - Dataset to calculate the percent randomization based on different numbers of swaps for all species. 
+- **`iterations_swaps.txt`** - Dataset to calculate the percent randomization based on different numbers of swaps for all species.
 - **`orbit_proteins.py`** – Script for finding protein identities and overrepresented orbits in GRPhIN results.
 - **`pageRank.py`** – Script for running simple Random Walk with Restart algorithm to capture a subnetwork based on oxidative stress pathways.
 - **`README.md`** – This file, providing documentation for the repository.
