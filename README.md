@@ -36,10 +36,8 @@ python3 grphin.py -u data/oxidative_stress/txid224308/stress_ppi.csv -d data/oxi
 
 ## Analyses
 
-1. Generate 1000 randomized subnetworks with 1000 edge swaps based on stress subnetworks (all species): `python3 generateNetworks.py -s 1000 -i 1000`
-2. Count graphlets (all species): `bash countRandomizedNets.sh -a -n 1000`
-3. Calculate significance for graphlet occurences based on 1000 randomized networks (all species): `python3 significance.py -i 1000`
-
-```
-
-```
+1. Generate the stress response subnetwork using Random Walk with Restart (all species):
+`python3 pageRank.py`
+2. Generate 1000 randomized subnetworks with 1000 edge swaps based on stress subnetworks (all species): `python3 generateNetworks.py -s 1000 -i 1000`
+3. Count graphlets (all species): `bash countRandomizedNets.sh -a -n 1000`
+4. Calculate significance for graphlet occurences based on 1000 randomized networks (all species): `python3 significance.py -i 1000`
